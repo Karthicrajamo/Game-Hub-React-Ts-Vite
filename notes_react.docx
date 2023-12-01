@@ -1,0 +1,100 @@
+RUN:
+    npm run dev
+
+Fake backend:
+	Jsonplaceholder --> https://jsonplaceholder.typicode.com/
+
+Sending HTTP requests:
+	fetch()
+	axios
+
+Imports:
+	import { useForm } from "react-hook-form";
+	import { z } from "zod";
+	import { zodResolver } from '@hookform/resolvers/zod'
+
+Git:
+	git log --oneline
+
+UI's:
+    Bootstrap
+    Material UI
+    Tailwind UI
+    Daisy UI
+    chakra UI
+
+Icons Installiation:
+    npm i react-icons@4.7.1 -> https://react-icons.github.io/react-icons/icons/ai/
+
+INSTALL DEPENDENCES:
+	npm create vite@4.1.0
+    npm i 
+    npm i bootstrap@5.2.3 --> at that time
+    npm i styled-components
+    npm i @types/styled-components
+    npm i react-icons
+    npm i immer@9.0.19  //npm i immer ->some bugs
+	npm i react-hook-form@7.43
+	npm i zod@3.20.6
+	npm i @hookform/resolvers@2.9.11
+	npm i axios@1.3.4
+
+Validation Libs:
+	Joi
+	Yup
+	Zod
+
+Note:
+    const [test, setTest] = useState(['bye', 'hi'])
+    Post -> setTest[...var, 'hello']    // tags.push("cheer");   -> It changes the originals
+    Delete -> setTest.filter(tes => tes !== 'hi')
+    Update -> setTest.map(tes => tes == 'hi'? 'Welcome': tes)
+
+	onDelete={(id) => setExpense(expense.filter((e) => e.id !== id))}
+
+
+// Object handling:
+    	const [pizza, setPizza] = useState({
+		name: 'Spicy Pepperoni',
+		toppings: ['Mushroom']
+	})
+
+	const handler = () => {
+		setGame({ ...game, player: { name: "janu" } });
+    }
+
+//Update Logic:
+    const [cart, setCart] = useState({
+		discount: 1,
+		items: [
+			{
+				id: 1,
+				title: "Product 1",
+				quantity: 1,
+			},
+			{
+				id: 2,
+				title: "Product 2",
+				quantity: 1,
+			},
+		],
+	});
+
+	const handler = () => {
+    		setCart({
+			...cart,
+			items: cart.items.map((item) =>
+				item.id === 2 ? { ...item, quantity: 2 } : item
+			),
+		});
+    };
+
+    return (
+    			{cart.items.map((item) => (
+				<p key={item.id}>
+					{item.title}-{item.quantity}
+				</p>
+			))}
+    )
+
+	<form onSubmit={handleSubmit((data)=>{list(data),reset})}><form/>
