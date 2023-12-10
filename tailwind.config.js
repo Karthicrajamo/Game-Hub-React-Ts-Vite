@@ -7,9 +7,11 @@ export default {
 				xs: "100px",
 			},
 			fontSize: {
-				base: "1rem",
+				base: '10px',
 			},
+
 		},
 	},
 	plugins: [],
+	darkMode: ['class', '[data-mode="dark"]'],
 };
