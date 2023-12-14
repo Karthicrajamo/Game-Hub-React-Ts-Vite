@@ -7,11 +7,10 @@ export default {
 				xs: "100px",
 			},
 			fontSize: {
-				base: '10px',
+				base: "10px",
 			},
-
 		},
 	},
 	plugins: [],
-	darkMode: ['class', '[data-mode="dark"]'],
+	darkMode: ["class", '[data-mode="dark"]'],
 };

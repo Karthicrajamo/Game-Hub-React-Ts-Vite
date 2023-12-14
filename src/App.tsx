@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
 import ColorModeSwitch from "./components/ColorModeSwitch";
-import GameGrid from "./components/GameGrid";
+import GameGrid from "./components/game/GameGrid";
 
 function App() {
 	const [toggle, setToggle] = useState(false);
@@ -13,22 +13,19 @@ function App() {
 			{/* <div data-mode={toggle && "dark"}> */}
 			<div data-mode={!toggle ? "dark" : ""}>
 				<main className="dark:bg-neutral-700 min-h-screen box-border">
-					<div className="grid md:grid-cols-2 grid-rows-2 grid-row-2">
-						<div className="md:col-span-2 dark:text-white">
-							<NavBar></NavBar>
+					<div className="grid md:grid-cols-2  grid-rows-[25% 75%] grid-cols-[30% 80%]">
+						<div className="md:col-span-2 dark:text-white ">
+							<NavBar toggleBtn={toggle} onClick={(data) => setToggle(data)}></NavBar>
 						</div>
-						<div className="bg-red-400 hidden md:inline ">aside</div>
-						<div className="bg-orange-400 xs:max-md:col-span-2">
-						<GameGrid />
 
+						<div className=" hidden md:inline ">aside</div>
+						<div className="bg-neutral-400 dark:bg-slate-800 xs:max-md:col-span-2">
+							<GameGrid />
 						</div>
 					</div>
-					<ColorModeSwitch
-						toggleBtn={toggle}
-						onClick={(data) => setToggle(data)}
-					/>
 				</main>
 			</div>
+
 		</>
 	);
 }
