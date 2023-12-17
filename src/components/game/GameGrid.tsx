@@ -11,8 +11,8 @@ const GameGrid = () => {
 		<>
 			<text>{err}</text>
 			<div className="grid grid-cols-3">
-				{games.map((e) => (
-						<GameCard game={e} />
+				{games.map((game) => (
+					<GameCard key={game.id} game={game} />
 				))}
 			</div>
 		</>
