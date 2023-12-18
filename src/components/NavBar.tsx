@@ -23,7 +23,7 @@ const NavBar = ({ toggleBtn, onClick }: Props) => {
 					/>
 					<header className="inline-block">Navbar</header>
 				</div>
-				<div>
+				<div className="pr-4">
 					<ColorModeSwitch toggleBtn={toggleBtn} onClick={handleToggle} />
 				</div>
 			</div>

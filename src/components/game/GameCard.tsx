@@ -9,8 +9,8 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
 	return (
-		<div className="bg-gray-500 m-3 rounded-md overflow-hidden">
-			<img src={game.background_image}></img>
+		<div className="bg-gray-500 m-3 rounded-md overflow-hidden h-[300px] w-[400px] md:w-auto">
+			<img className="w-[400px] h-[200px]" src={game.background_image}></img>
 			<div className="p-3 flex justify-between">
 				<PlateformIconList platform={game.parent_platforms.map(({ platform:p }) => p)}/>
 				<CriticScore score={game.metacritic}/>
