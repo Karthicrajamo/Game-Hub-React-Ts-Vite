@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Platform } from "./useGame";
+import { Platform } from "./Hooks/useGame";
 import {
 	FaPlaystation,
 	FaApple,

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import apiClient from "../../services/api-client";
 import { CanceledError } from "axios";
-import useGame from "./useGame";
+import useGame from "./Hooks/useGame";
 import GameCard from "./GameCard";
 import CardSkeleton from "./CardSkeleton";
 
@@ -12,8 +12,7 @@ const GameGrid = () => {
 	return (
 		<>
 			<div className="flex flex-wrap">
-
-			{isLoading && skel.map((e) => <CardSkeleton key={e} />)}
+				{isLoading && skel.map((e) => <CardSkeleton key={e} />)}
 			</div>
 			<text>{err}</text>
 			{/* <CardSkeleton/> */}

@@ -3,6 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
 import GameGrid from "./components/game/GameGrid";
+import GenresList from "./components/game/GenresList";
 
 function App() {
 	const [toggle, setToggle] = useState(false);
@@ -17,7 +18,7 @@ function App() {
 							<NavBar toggleBtn={toggle} onClick={(data) => setToggle(data)}></NavBar>
 						</div>
 
-						<div className=" hidden md:inline ">aside</div>
+						<div className=" hidden md:inline "><GenresList/></div>
 						<div className="bg-neutral-400 dark:bg-slate-800 col-span-3">
 							<GameGrid />
 						</div>
