@@ -11,7 +11,7 @@ const GameGrid = () => {
 
 	return (
 		<>
-			<div className="flex flex-wrap">
+			<div className="flex flex-wrap justify-center">
 				{isLoading && skel.map((e) => <CardSkeleton key={e} />)}
 			</div>
 			<text>{err}</text>
