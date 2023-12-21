@@ -6,12 +6,12 @@ import GameGrid from "./components/game/GameGrid";
 import GenresList from "./components/game/GenresList";
 import { Genres } from "./components/game/Hooks/useGenres";
 import PlateformSelector from "./components/game/PlateformSelector";
-
-
+import { Platform } from "./components/game/Hooks/useGame";
 
 function App() {
 	const [toggle, setToggle] = useState(false);
-	const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null)
+	const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null);
+	const [selectPlatform, setSelectPlatform] = useState<Platform | null>(null);
 
 	return (
 		<>
@@ -19,18 +19,27 @@ function App() {
 				<main className="dark:bg-blue-950 min-h-screen box-border">
 					<div className="grid md:grid-cols-4  grid-rows-[25% 75%]">
 						<div className="md:col-span-4 dark:text-white ">
-							<NavBar toggleBtn={toggle} onClick={(data) => setToggle(data)}></NavBar>
+							<NavBar
+								toggleBtn={toggle}
+								onClick={(data) => setToggle(data)}
+							></NavBar>
 						</div>
 
-						<div className=" hidden md:inline "><GenresList onSelect={(gen) => setSelectedGenre(gen)}/></div>
+						<div className=" hidden md:inline ">
+							<GenresList onSelect={(gen) => setSelectedGenre(gen)} />
+						</div>
 						<div className="bg-neutral-50 dark:bg-blue-950 col-span-3">
-							<PlateformSelector/>
-							<GameGrid genresTitle={selectedGenre}/>
+							<PlateformSelector
+								onSelectedPlatform={(data) => setSelectPlatform(data)}
+							/>
+							<GameGrid
+								selectedPlatform={selectPlatform}
+								genresTitle={selectedGenre}
+							/>
 						</div>
 					</div>
 				</main>
 			</div>
-
 		</>
 	);
 }

@@ -6,10 +6,11 @@ import { Platform } from "./Hooks/useGame";
 
 interface Props {
 	genresTitle: Genres | null;
+	selectedPlatform: Platform | null;
 }
 
-const GameGrid = ({ genresTitle,}: Props) => {
-	const { data, err, isLoading } = useGame(genresTitle);
+const GameGrid = ({ genresTitle, selectedPlatform}: Props) => {
+	const { data, err, isLoading } = useGame(genresTitle, selectedPlatform);
 	const skel = [1, 2, 3, 4, 5, 6];
 
 	return (
