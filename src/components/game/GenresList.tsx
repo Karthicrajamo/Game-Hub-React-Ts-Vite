@@ -1,15 +1,21 @@
-import React from "react";
 import useGenres, { Genres } from "./Hooks/useGenres";
 import useData from "./Hooks/useData";
 import { Image } from "@chakra-ui/react";
 import useGame from "./Hooks/useGame";
+import { useState } from "react";
 
-const GenresList = () => {
-	const { isLoading } = useGame();
-	const { data } = useData<Genres>("/genres");
+interface Props{
+  onSelect: (genre: Genres) => void
+}
+
+const GenresList = ({onSelect}: Props) => {
+	// const { isLoading } = useGame();
+	const { data, isLoading } = useGenres();
+	const [active, setActive] = useState(-1)
 
 	return (
 		<>
+		{/* Loading */}
 			<div className="flex flex-wrap justify-center">
 				{isLoading && (
 					<div role="status">
@@ -33,16 +39,17 @@ const GenresList = () => {
 					</div>
 				)}
 			</div>
-			;
+
+			{/* Content */}
 			<div>
 				{data.map((gen, index) => (
-					<div className="flex p-5 pb-0">
+					<div className="flex p-5 pb-0 cursor-pointer" key={index} onClick={() => {onSelect(gen); setActive(index)}}>
 						<Image
 							className="w-14 h-10 rounded-lg mr-3"
 							src={gen.image_background}
 							alt="gen"
 						></Image>
-						<h1 className="dark:text-white text-black" key={gen.id}>
+						<h1 className={`"dark:text-white text-black" ${active == index && "font-bold border-b-2"}`} key={gen.id}>
 							{gen.name}
 						</h1>
 					</div>
