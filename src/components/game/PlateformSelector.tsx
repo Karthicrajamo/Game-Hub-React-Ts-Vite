@@ -13,7 +13,7 @@ const PlateformSelector = ({ onSelectedPlatform }: Props) => {
 
 	return (
 		<div>
-			<select
+			<select className="p-3 border-[1px] rounded-md ml-2"
 				name="Devices"
 				onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
 					const selectedPlatform = data.find(
@@ -26,7 +26,6 @@ const PlateformSelector = ({ onSelectedPlatform }: Props) => {
 				{data.map((opt, index) => (
 					<option
 						value={opt.slug}
-						onMouseDown={() => console.log(opt)}
 						key={index}
 					>
 						{opt.name}

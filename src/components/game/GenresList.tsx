@@ -49,7 +49,7 @@ const GenresList = ({onSelect}: Props) => {
 							src={gen.image_background}
 							alt="gen"
 						></Image>
-						<h1 className={`"dark:text-white text-black" ${active == index && "font-bold border-b-2"}`} key={gen.id}>
+						<h1 className={`dark:text-white text-black ${active == index && "font-bold border-b-2"}`} key={gen.id}>
 							{gen.name}
 						</h1>
 					</div>

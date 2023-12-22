@@ -7,15 +7,16 @@ import GenresList from "./components/game/GenresList";
 import { Genres } from "./components/game/Hooks/useGenres";
 import PlateformSelector from "./components/game/PlateformSelector";
 import { Platform } from "./components/game/Hooks/useGame";
+import SortSelector from "./components/game/SortSelector";
 
-export interface GameQuery{
+export interface GameQuery {
 	genre: Genres | null;
 	platform: Platform | null;
 }
 
 function App() {
 	const [toggle, setToggle] = useState(false);
-	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
+	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
 	return (
 		<>
@@ -30,15 +31,20 @@ function App() {
 						</div>
 
 						<div className=" hidden md:inline ">
-							<GenresList onSelect={(gen) => setGameQuery({...gameQuery, genre:gen})} />
+							<GenresList
+								onSelect={(gen) => setGameQuery({ ...gameQuery, genre: gen })}
+							/>
 						</div>
 						<div className="bg-neutral-50 dark:bg-blue-950 col-span-3">
-							<PlateformSelector
-								onSelectedPlatform={(platform) => setGameQuery({...gameQuery, platform})}
-							/>
-							<GameGrid
-								gameQuery={gameQuery}
-							/>
+							<div className="flex space-x-5">
+								<PlateformSelector
+									onSelectedPlatform={(platform) =>
+										setGameQuery({ ...gameQuery, platform })
+									}
+								/>
+								<SortSelector />
+							</div>
+							<GameGrid gameQuery={gameQuery} />
 							{/* <GameGrid
 								selectedPlatform={gameQuery.platform}
 								genresTitle={gameQuery.genre}
